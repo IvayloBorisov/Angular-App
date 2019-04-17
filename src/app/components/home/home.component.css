@@ -1,0 +1,14 @@
+img {
+    background-image: url("https://www.thegryphon.co.uk/wp-content/uploads/2016/11/Travelling.jpg");
+    height: 100%;
+    background-position: center;
+     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

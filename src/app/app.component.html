@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation" mode="push">
+             <app-sidenav-navigation></app-sidenav-navigation>
+        </mat-sidenav>
+        <mat-sidenav-content>
+                <app-toolbar-navigation (toggleSideNavigation)="sidenav.toggle()"></app-toolbar-navigation>
+                <main>
+                     <router-outlet></router-outlet>
+                </main>
+               <app-footer></app-footer>
+        </mat-sidenav-content>
+    
+        
+</mat-sidenav-container>
+
+

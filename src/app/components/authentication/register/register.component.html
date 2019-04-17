@@ -1,0 +1,32 @@
+<div class="register-form" fxLayoutAlign="center center">
+<form [formGroup]="registerForm" fxLayout="column"  fxLayoutGap="20px" (submit)="register()">
+ <mat-form-field appearance="standard">
+    <mat-label>Username</mat-label>
+        <input formControlName="name" matInput type="text" placeholder="Username" id="name">
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-hint align="end">Username must be 3/10 chars</mat-hint>
+        <mat-error align="end" *ngIf="form.name.errors?.required">This field is required!</mat-error>
+        <mat-error align="end" *ngIf="form.name.errors?.minlength">Username must be at least 3 chars!</mat-error>
+        <mat-error align="end" *ngIf="form.name.errors?.maxlength">Username must be less than 11 chars!</mat-error>
+    </mat-form-field> 
+    <mat-form-field>
+    <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" placeholder="Email">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-hint align="end">Email format: a@a.com/a@a.bg</mat-hint>
+        <mat-error align="end" *ngIf="form.email.errors?.required">This field is required!</mat-error>
+        <mat-error align="end" *ngIf="form.email.errors?.pattern">Invalid email format!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+    <mat-label>Password</mat-label>
+        <input formControlName="password" matInput type="password" placeholder="Password">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+        <mat-hint align="end">Password must be 6/15 chars</mat-hint>
+        <mat-error align="end" *ngIf="form.password.errors?.required">This field is required!</mat-error>
+        <mat-error align="end" *ngIf="form.password.errors?.minlength">Password must be at least 6 chars!</mat-error>
+        <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must be less than 16 chars!</mat-error>
+    </mat-form-field>
+ 
+  <button mat-raised-button [disabled]="registerForm.invalid" color="primary" type="submit">Register</button>
+</form>
+</div>
