@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DestinationService } from '../destination.service';
 
 @Component({
   selector: 'app-destination-details',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DestinationDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private destinationService: DestinationService) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe((data) => {
+      
+    })
   }
 
 }

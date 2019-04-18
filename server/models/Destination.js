@@ -24,6 +24,8 @@ const destinationSchema = new Schema({
   },
   topSights: [{
     type: String,
+    
+
   }]
 });
 

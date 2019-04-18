@@ -12,34 +12,24 @@ function validateDestinationForm (payload) {
   payload.year = parseInt(payload.year)
   payload.price = parseInt(payload.price)
 
-  if (!payload || typeof payload.make !== 'string' || payload.make.length < 3) {
+  if (!payload || typeof payload.location !== 'string' || payload.location.length < 3) {
     isFormValid = false
-    errors.make = 'Make must be more than 3 symbols.'
+    errors.location = 'Make must be more than 3 symbols.'
   }
 
-  if (!payload || typeof payload.model !== 'string' || payload.model.length < 3) {
+  if (!payload || typeof payload.hotel !== 'string' || payload.hotel.length < 3) {
     isFormValid = false
-    errors.model = 'Model must be more than 3 symbols.'
+    errors.model = 'Hotel name must be more than 3 symbols.'
   }
 
-  if (!payload || !payload.year || payload.year < 1950 || payload.year > 2050) {
+  if (!payload || typeof payload.description !== 'string' || payload.description.length < 20) {
     isFormValid = false
-    errors.year = 'Year must be between 1950 and 2050.'
+    errors.description = 'Description must be more than 20 symbols.'
   }
 
-  if (!payload || typeof payload.description !== 'string' || payload.description.length < 10) {
+  if (!payload || typeof payload.imageUrl !== 'string' || payload.imageUrl.length === 0) {
     isFormValid = false
-    errors.description = 'Description must be more than 10 symbols.'
-  }
-
-  if (!payload || !payload.price || payload.price < 0) {
-    isFormValid = false
-    errors.price = 'Price must be a positive number.'
-  }
-
-  if (!payload || typeof payload.image !== 'string' || payload.image.length === 0) {
-    isFormValid = false
-    errors.image = 'Image URL is required.'
+    errors.imageUrl = 'Image URL is required.'
   }
 
   if (!isFormValid) {
@@ -65,7 +55,7 @@ router.post('/create', authCheck, (req, res) => {
     })
   }
 
-  destination.create(destination)
+  Destination.create(destination)
     .then(() => {
       res.status(200).json({
         success: true,
@@ -79,7 +69,7 @@ router.get('/all', authCheck ,(req, res) => {
   const page = parseInt(req.query.page) || 1
   const search = req.query.search
 
-  destination.find({})
+  Destination.find({})
     .then((destination) => {
       return res.status(200).json(destination)
     })
@@ -87,7 +77,7 @@ router.get('/all', authCheck ,(req, res) => {
 
 router.get('/details/:id', authCheck, (req, res) => {
   const id = req.params.id
-  destination.findById(id)
+  Destination.findById(id)
     .then((destination) => {
       if (!destination) {
         return res.status(404).json({
@@ -99,7 +89,7 @@ router.get('/details/:id', authCheck, (req, res) => {
       let response = {
         id,
         location: destination.location,
-        model: destination.hotel,
+        hotel: destination.hotel,
         imageUrl: destination.imageUrl,
         description: destination.description,
         creator: destination.creator,
@@ -118,7 +108,7 @@ router.get('/details/:id', authCheck, (req, res) => {
 router.get('/user', authCheck, (req, res) => {
   const user = req.user._id
 
-  destination.find({creator: user})
+  Destination.find({creator: user})
     .then((destination) => {
       return res.status(200).json(destination)
     })
@@ -128,7 +118,7 @@ router.delete('/delete/:id', authCheck, (req, res) => {
   const id = req.params.id
   const user = req.user._id
 
-  destination.findById(id)
+  Destination.findById(id)
     .then((destination) => {
       if (!destination) {
         return res.status(200).json({
@@ -144,7 +134,7 @@ router.delete('/delete/:id', authCheck, (req, res) => {
          })
       }
 
-      destination.findByIdAndDelete(id)
+      Destination.findByIdAndDelete(id)
         .then(() => {
           return res.status(200).json({
             success: true,
@@ -181,7 +171,7 @@ router.put('/edit/:id', authCheck, (req, res) => {
     })
   }
 
-  destination.findByIdAndUpdate(id, destination)
+  Destination.findByIdAndUpdate(id, destination)
     .then(() => {
       return res.status(200).json({
         success: true,
@@ -205,7 +195,7 @@ router.get('/:id', authCheck, (req, res) => {
       let response = {
         id,
         location: destination.location,
-        model: destination.hotel,
+        hotel: destination.hotel,
         imageUrl: destination.imageUrl,
         description: destination.description,
         creator: destination.creator,

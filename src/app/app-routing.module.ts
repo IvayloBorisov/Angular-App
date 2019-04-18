@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/authentication/register/register
 import { LoginComponent } from './components/authentication/login/login.component';
 import { DestinationCreateComponent } from './components/destination/destination-create/destination-create.component';
 import { DestinationAllComponent } from './components/destination/destination-all/destination-all.component';
+import { DestinationDetailsComponent } from './components/destination/destination-details/destination-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'destination/create', component: DestinationCreateComponent },
   { path: 'destination/all', component: DestinationAllComponent },
+  { path: 'destination/details/:id', component: DestinationDetailsComponent },
 
 ];
 

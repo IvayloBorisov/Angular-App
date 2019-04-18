@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DestinationService } from '../destination.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-destination-create',
@@ -10,7 +12,9 @@ export class DestinationCreateComponent implements OnInit {
 
   destinationCreateForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private destinationService: DestinationService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -18,14 +22,24 @@ export class DestinationCreateComponent implements OnInit {
 
       location: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(10) ] ],
       hotel: [ '', [ Validators.required, Validators.minLength(3), Validators.maxLength(10) ] ],
-      imageUrl: [ '', Validators.required ],
+      imageUrl: [ '', [ Validators.required, Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ] ],
       description: [ '', [ Validators.required, Validators.minLength(20), Validators.maxLength(300) ] ],
-      topSights: [ '', [] ],
+      topSights: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+     
     })
   }
 
-  submitCreateForm() {
-    console.log(this.destinationCreateForm);
+  
+
+  createDestination() {
+    this.destinationService.createDestination(this.destinationCreateForm.value)
+         .subscribe((data) => {
+                 this.router.navigate(['/destination/all']);
+         })
+  }
+
+  get form() {
+    return this.destinationCreateForm.controls;
   }
 
 }

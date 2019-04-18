@@ -1,32 +1,56 @@
-<form [formGroup]="destinationCreateForm">
-  <mat-form-field>
-      <mat-label>Location</mat-label>
-      <input formControlName="location" type="text" placeholder="Location"/>
-      <mat-icon></mat-icon>
-      <mat-hint></mat-hint>
-  </mat-form-field> 
-  <mat-form-field>
-      <mat-label>Hotel</mat-label>
-      <input formControlName="hotel" type="text" placeholder="Location"/>
-      <mat-icon></mat-icon>
-      <mat-hint></mat-hint>
-  </mat-form-field>
-  <mat-form-field>
-      <mat-label>Image</mat-label>
-      <input formControlName="imageUrl" type="text" placeholder="Location"/>
-      <mat-icon></mat-icon>
-      <mat-hint></mat-hint>
-  </mat-form-field>  
-  <mat-form-field>
-      <mat-label>Description</mat-label>
-      <input formControlName="description" type="text" placeholder="Location"/>
-      <mat-icon></mat-icon>
-      <mat-hint></mat-hint>
-  </mat-form-field> 
-  <mat-form-field>
-      <mat-label>Top Sight</mat-label>
-      <input formControlName="topSights" type="text" placeholder="Location"/>
-      <mat-icon></mat-icon>
-      <mat-hint></mat-hint>
-  </mat-form-field> 
-</form>
+
+    <form [formGroup]="destinationCreateForm" fxLayoutAlign="center center" fxLayout="column"  fxLayoutGap="20px" (submit)="createDestination()">
+        <mat-form-field appearance="standard">
+               <mat-label>Location</mat-label>
+               <input formControlName="location" matInput type="text" placeholder="location"/>
+               <mat-icon matSuffix>location_city</mat-icon>
+               <mat-hint align="end">Location must be 3/10 chars</mat-hint>
+               <mat-error align="end" *ngIf="form.location.errors?.required">This field is required!</mat-error>
+               <mat-error align="end" *ngIf="form.location.errors?.minlength">Location must be at least 3 chars!</mat-error>
+               <mat-error align="end" *ngIf="form.location.errors?.maxlength">Location must be less than 11 chars!</mat-error>
+        </mat-form-field> 
+        <mat-form-field>
+               <mat-label>Hotel Name</mat-label>
+               <input formControlName="hotel" matInput type="text" placeholder="Hotel"/>
+               <mat-icon matSuffix>hotel</mat-icon>
+               <mat-hint align="end">Hotel name must be 3/10 chars</mat-hint>
+               <mat-error align="end" *ngIf="form.hotel.errors?.required">This field is required!</mat-error>
+               <mat-error align="end" *ngIf="form.hotel.errors?.minlength">Hotel name must be at least 3 chars!</mat-error>
+               <mat-error align="end" *ngIf="form.hotel.errors?.maxlength">Hotel name must be less than 11 chars!</mat-error>
+        </mat-form-field>
+         <mat-form-field>
+               <mat-label>ImageUrl</mat-label>
+               <input formControlName="imageUrl" matInput type="text" placeholder="ImageUrl"/>
+               <mat-icon matSuffix>add_photo_alternate</mat-icon>
+               <mat-hint align="end">Please enter a valid URL</mat-hint>
+               <mat-error align="end" *ngIf="form.imageUrl.errors?.required">This field is required!</mat-error>   
+               <mat-error align="end" *ngIf="form.imageUrl.errors?.pattern">Invalid URL !</mat-error>
+        
+           </mat-form-field>
+        <mat-form-field>
+           <mat-label>Description</mat-label>
+           <textarea formControlName="description" matInput type="text" placeholder="Description" rows="5"></textarea>
+           <mat-icon matSuffix>description</mat-icon>
+           <mat-hint align="end">Description must be 20/300 chars</mat-hint>
+           <mat-error align="end" *ngIf="form.description.errors?.required">This field is required!</mat-error>
+           <mat-error align="end" *ngIf="form.description.errors?.minlength">Description must be at least 20 chars!</mat-error>
+           <mat-error align="end" *ngIf="form.description.errors?.maxlength">Description must be less than 301 chars!</mat-error>
+    </mat-form-field>
+        <mat-form-field>
+           <mat-label>Sights Image</mat-label>
+           <input formControlName="topSights" matInput type="text" placeholder="Sights Image Url"/>
+           <mat-icon matSuffix>collections</mat-icon>
+           <mat-hint align="end">Please enter a valid URL</mat-hint>
+           <mat-error align="end" *ngIf="form.topSights.touched && form.topSights.errors?.pattern">Invalid URL !</mat-error>
+       </mat-form-field>
+       <mat-form-field>
+           <mat-label>Sights Image</mat-label>
+           <input formControlName="topSights" matInput type="text" placeholder="Sights Image Url"/>
+           <mat-icon matSuffix>collections</mat-icon>
+           <mat-hint align="end">Please enter a valid URL</mat-hint>
+           <mat-error align="end" *ngIf="form.topSights.touched && form.topSights.errors?.pattern">Invalid URL !</mat-error>
+      
+       </mat-form-field>
+         <button mat-raised-button [disabled]="destinationCreateForm.invalid" color="primary" type="submit">Create</button>
+       </form>
+   

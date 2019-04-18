@@ -1,3 +1,17 @@
-<p>
-  destination-all works!
-</p>
+<div class="row-space-top">
+  <div class="col-md-4">
+      <mat-card class="destination-all-card" *ngFor="let destination of destinationAll$ | async">
+        <mat-card-header>
+          <mat-card-title>{{destination.location}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{destination.imageUrl}}" alt="Photo of a {{destination.location}}">
+        <mat-card-content>
+          <p>{{destination.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" [routerLink]="['/destination/details/', destination._id ]">Details</button>
+          <button mat-raised-button color="danger" [routerLink]="['/destination/delete/', destination._id ]">Delete</button>        
+        </mat-card-actions>
+      </mat-card>
+  </div>
+</div>
