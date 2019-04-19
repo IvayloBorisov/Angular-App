@@ -4,6 +4,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ToastrModule } from "ngx-toastr";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { DestinationCreateComponent } from './components/destination/destination
 import { DestinationAllComponent } from './components/destination/destination-all/destination-all.component';
 import { DestinationDetailsComponent } from './components/destination/destination-details/destination-details.component';
 import { DestinationService } from './components/destination/destination.service';
+import { ResponseHandlerInterceptorService } from './response-handler-interceptor.service';
 
 
 @NgModule({
@@ -44,6 +47,7 @@ import { DestinationService } from './components/destination/destination.service
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AuthService,
@@ -52,6 +56,11 @@ import { DestinationService } from './components/destination/destination.service
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,
       multi: true
+    },
+    {
+       provide: HTTP_INTERCEPTORS,
+       useClass: ResponseHandlerInterceptorService,
+       multi: true
     },
   ],
   bootstrap: [AppComponent]

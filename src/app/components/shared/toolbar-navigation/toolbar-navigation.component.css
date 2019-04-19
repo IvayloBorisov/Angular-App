@@ -1,14 +1,22 @@
 a:hover {
 
-    color: red;
+    color: black;
 }
 
 a {
     text-decoration: none; 
-    color: black;
+    color: white;
 }
 
 ul {
     list-style: none;
+}
+
+button {
+    color: white;
+}
+
+button:hover {
+    color: black;
 }
 

@@ -1,3 +1,14 @@
-<p>
-  destination-details works!
-</p>
+<div *ngIf="destination">
+  <img src="{{destination.imageUrl}}"/>
+  <div>
+    <h1>Why go to {{destination.location}}</h1>
+    <p>
+      {{destination.description}}
+    </p>
+  </div>
+  <div>
+    <h3>We recommend to visit</h3>
+    <img src="{{destination.topSights}}" />
+  </div>
+</div>
+

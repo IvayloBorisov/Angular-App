@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'destination/create', component: DestinationCreateComponent },
   { path: 'destination/all', component: DestinationAllComponent },
   { path: 'destination/details/:id', component: DestinationDetailsComponent },
+  
 
 ];
 

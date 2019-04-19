@@ -16,9 +16,16 @@ export class DestinationAllComponent implements OnInit {
 
   ngOnInit() {
 
-     this.destinationAll$ = this.destinationService.getAllDestinations();
-        
+     this.destinationAll$ = this.destinationService.getAllDestinations();      
   }
+
+  deleteDestination(id){
+    this.destinationService.deleteDestination(id).subscribe((data) => {
+
+      this.destinationAll$ = this.destinationService.getAllDestinations();
+    })
+    }
+    
 
   
 }

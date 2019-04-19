@@ -1,17 +1,27 @@
 <div class="row-space-top">
-  <div class="col-md-4">
-      <mat-card class="destination-all-card" *ngFor="let destination of destinationAll$ | async">
-        <mat-card-header>
-          <mat-card-title>{{destination.location}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="{{destination.imageUrl}}" alt="Photo of a {{destination.location}}">
-        <mat-card-content>
-          <p>{{destination.description}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" [routerLink]="['/destination/details/', destination._id ]">Details</button>
-          <button mat-raised-button color="danger" [routerLink]="['/destination/delete/', destination._id ]">Delete</button>        
-        </mat-card-actions>
-      </mat-card>
+  <div class="col-md-4" *ngFor="let destination of destinationAll$ | async">
+    <div class="card mb-3">
+      <h3 class="card-header">{{destination.location}}</h3>
+      <img style="height: 200px; width: 100%; display: block;" src="{{destination.imageUrl}}"
+        alt="{{destination.location}} image">
+      <div class="card-body">
+        <p class="card-text">{{destination.description}}</p>
+      </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-info" [routerLink]="['/destination/details', destination._id]" >Details</button>
+        <button type="button" class="btn btn-danger" (click)="deleteDestination(destination._id)" >Delete</button>
+      </div>
+      <div class="card-footer text-muted">
+      </div>
+    </div>
   </div>
+  <!-- <ng-template #loading>
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 text-center" >
+          <h1>Loading...</h1>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </ng-template> -->
 </div>
