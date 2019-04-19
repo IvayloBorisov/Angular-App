@@ -21,7 +21,7 @@ loginForm: FormGroup;
      this.loginForm = this.fb.group({
 
       email: ['', [ Validators.required, Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/) ] ],
-      password: ['', [ Validators.required, Validators.minLength(6), Validators.maxLength(15) ] ]
+      password: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(15) ] ]
 
      });
   }
@@ -29,8 +29,15 @@ loginForm: FormGroup;
   login() {
     this.authService.login(this.loginForm.value)
          .subscribe((data) => {
+          
            localStorage.setItem('token', data['token']);
            localStorage.setItem('name', data['user']['name']);
+           localStorage.setItem('isAdmin', data['user']['isAdmin']);
+           let name = localStorage.getItem('name');
+           let isAdmin = this.authService.isAdmin();
+
+          console.log(name);
+          console.log(isAdmin);
            this.router.navigate(['/destination/all'])
          })
   }

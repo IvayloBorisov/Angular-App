@@ -93,7 +93,10 @@ router.get('/details/:id', authCheck, (req, res) => {
         imageUrl: destination.imageUrl,
         description: destination.description,
         creator: destination.creator,
-        topSights: destination.topSights,
+        topSightsOne: destination.topSightsOne,
+        topSightsTwo: destination.topSightsTwo,
+        topSightsThree: destination.topSightsThree,
+
       }
 
       // if (destination.material) {
@@ -199,7 +202,10 @@ router.get('/:id', authCheck, (req, res) => {
         imageUrl: destination.imageUrl,
         description: destination.description,
         creator: destination.creator,
-        topSights: destination.topSights,
+        topSightsOne: destination.topSightsOne,
+        topSightsTwo: destination.topSightsTwo,
+        topSightsThree: destination.topSightsThree,
+
       }
 
       // if (destination.material) {

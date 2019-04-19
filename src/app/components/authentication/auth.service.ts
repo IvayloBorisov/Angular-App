@@ -2,23 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+const registerUrl = "http://localhost:5000/auth/register";
+const loginUrl =  "http://localhost:5000/auth/login";
+
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
 
-  registerUrl: string = "http://localhost:5000/auth/register";
-  loginUrl: string =  "http://localhost:5000/auth/login";
+  
 
   constructor( private http: HttpClient, private router: Router) { }
 
   register(body) {
-    return this.http.post(this.registerUrl, body);
+    return this.http.post(registerUrl, body);
   }
 
   login(body) {
-    return this.http.post(this.loginUrl, body);
+    return this.http.post(loginUrl, body);
   }
 
   logout() {
@@ -33,5 +36,13 @@ export class AuthService {
   getToken() {
     let token = localStorage.getItem('token');
     return token;
+  }
+
+  isAdmin() {
+    let role = localStorage.getItem('isAdmin');
+    
+    if(role === "true") {
+      return true;
+    } 
   }
 }

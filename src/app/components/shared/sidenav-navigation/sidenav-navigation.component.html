@@ -4,23 +4,23 @@
             <mat-icon>home</mat-icon>
             Home
         </a>
-        <a mat-list-item routerLink="/register">
+        <a *ngIf="!authService.isAuthenticated()" mat-list-item routerLink="/register">
             <mat-icon>person</mat-icon>
             Register
         </a>
-        <a mat-list-item routerLink="/login">
+        <a *ngIf="!authService.isAuthenticated()" mat-list-item routerLink="/login">
             <mat-icon>account_box</mat-icon>
             Login
         </a>
-        <a mat-list-item routerLink="/destination/create">
+        <a *ngIf="authService.isAdmin()" mat-list-item routerLink="/destination/create">
             <mat-icon>add_box</mat-icon>
             Create
         </a>
-        <a mat-list-item routerLink="/destination/all">
+        <a *ngIf="authService.isAuthenticated()" mat-list-item routerLink="/destination/all">
                 <mat-icon>place</mat-icon>
             All Destinations
         </a>
-        <a mat-list-item (click)="logout()">
+        <a *ngIf="authService.isAuthenticated()" mat-list-item (click)="logout()">
             <mat-icon>eject</mat-icon>
             Logout
         </a>

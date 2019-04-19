@@ -11,9 +11,9 @@
       <mat-label>Password</mat-label>
       <input formControlName="password" matInput type="password" placeholder="Password"/>
       <mat-icon matSuffix>vpn_key</mat-icon>
-      <mat-hint align="end">Password must be 6/15 chars</mat-hint>
+      <mat-hint align="end">Password must be 5/15 chars</mat-hint>
       <mat-error align="end" *ngIf="form.password.errors?.required">This field is required!</mat-error>
-      <mat-error align="end" *ngIf="form.password.errors?.minlength">Password must be at least 6 chars!</mat-error>
+      <mat-error align="end" *ngIf="form.password.errors?.minlength">Password must be at least 5 chars!</mat-error>
       <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must be less than 16 chars!</mat-error>
     </mat-form-field>
     <button mat-raised-button [disabled]="loginForm.invalid" color="primary" type="submit">Login</button>

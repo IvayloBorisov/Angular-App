@@ -22,11 +22,15 @@ const destinationSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  topSights: [{
-    type: String,
-    
-
-  }]
+  topSightsOne: {
+    type: String
+  },
+  topSightsTwo: {
+    type: String
+  },
+  topSightsThree: {
+    type: String
+  }
 });
 
 const Destination = mongoose.model('Destination', destinationSchema);

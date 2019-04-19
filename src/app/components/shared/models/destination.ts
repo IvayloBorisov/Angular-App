@@ -5,5 +5,7 @@ export interface Destination {
     hotel: string;
     description: string;
     imageUrl: string;
-    topSights: [];
+    topSightsOne: string;
+    topSightsTwo: string;
+    topSightsThree: string;
 }

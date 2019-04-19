@@ -22,7 +22,7 @@ registerForm: FormGroup;
 
       name: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(10) ] ],
       email: ['', [ Validators.required, Validators.pattern(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/) ] ],
-      password: ['', [ Validators.required, Validators.minLength(6), Validators.maxLength(15) ] ],
+      password: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(15) ] ],
     });
   }
 

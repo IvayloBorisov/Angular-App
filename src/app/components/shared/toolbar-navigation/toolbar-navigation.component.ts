@@ -10,7 +10,7 @@ export class ToolbarNavigationComponent implements OnInit {
 
   @Output() toggleSideNavigation = new EventEmitter<void>();
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

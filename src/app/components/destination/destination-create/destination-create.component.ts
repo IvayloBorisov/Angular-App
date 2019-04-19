@@ -24,12 +24,11 @@ export class DestinationCreateComponent implements OnInit {
       hotel: [ '', [ Validators.required, Validators.minLength(3), Validators.maxLength(10) ] ],
       imageUrl: [ '', [ Validators.required, Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ] ],
       description: [ '', [ Validators.required, Validators.minLength(20), Validators.maxLength(300) ] ],
-      topSights: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
-     
+      topSightsOne: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+      topSightsTwo: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+      topSightsThree: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
     })
   }
-
-  
 
   createDestination() {
     this.destinationService.createDestination(this.destinationCreateForm.value)

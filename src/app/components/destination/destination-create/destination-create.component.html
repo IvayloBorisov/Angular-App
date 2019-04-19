@@ -36,21 +36,27 @@
            <mat-error align="end" *ngIf="form.description.errors?.minlength">Description must be at least 20 chars!</mat-error>
            <mat-error align="end" *ngIf="form.description.errors?.maxlength">Description must be less than 301 chars!</mat-error>
     </mat-form-field>
-        <mat-form-field>
-           <mat-label>Sights Image</mat-label>
-           <input formControlName="topSights" matInput type="text" placeholder="Sights Image Url"/>
-           <mat-icon matSuffix>collections</mat-icon>
-           <mat-hint align="end">Please enter a valid URL</mat-hint>
-           <mat-error align="end" *ngIf="form.topSights.touched && form.topSights.errors?.pattern">Invalid URL !</mat-error>
-       </mat-form-field>
        <mat-form-field>
            <mat-label>Sights Image</mat-label>
-           <input formControlName="topSights" matInput type="text" placeholder="Sights Image Url"/>
+           <input formControlName="topSightsOne" matInput type="text" placeholder="Sights Image Url"/>
            <mat-icon matSuffix>collections</mat-icon>
            <mat-hint align="end">Please enter a valid URL</mat-hint>
-           <mat-error align="end" *ngIf="form.topSights.touched && form.topSights.errors?.pattern">Invalid URL !</mat-error>
-      
+           <mat-error align="end" *ngIf="form.topSightsOne.touched && form.topSightsOne.errors?.pattern">Invalid URL !</mat-error>     
        </mat-form-field>
+       <mat-form-field>
+        <mat-label>Sights Image</mat-label>
+        <input formControlName="topSightsTwo" matInput type="text" placeholder="Sights Image Url"/>
+        <mat-icon matSuffix>collections</mat-icon>
+        <mat-hint align="end">Please enter a valid URL</mat-hint>
+        <mat-error align="end" *ngIf="form.topSightsTwo.touched && form.topSightsTwo.errors?.pattern">Invalid URL !</mat-error>     
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Sights Image</mat-label>
+        <input formControlName="topSightsThree" matInput type="text" placeholder="Sights Image Url"/>
+        <mat-icon matSuffix>collections</mat-icon>
+        <mat-hint align="end">Please enter a valid URL</mat-hint>
+        <mat-error align="end" *ngIf="form.topSightsThree.touched && form.topSightsThree.errors?.pattern">Invalid URL !</mat-error>     
+    </mat-form-field>
          <button mat-raised-button [disabled]="destinationCreateForm.invalid" color="primary" type="submit">Create</button>
        </form>
    

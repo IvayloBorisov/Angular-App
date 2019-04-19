@@ -11,7 +11,7 @@ import { Destination } from '../../shared/models/destination';
 export class DestinationDetailsComponent implements OnInit {
 
 destination: Destination;
-name:string = "Paris";
+
   constructor(private route: ActivatedRoute, private destinationService: DestinationService) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ name:string = "Paris";
       let id = data['id'];
       this.destinationService.getDestinationDetails(id).subscribe((data) => {
           this.destination = data;
-          console.log(this.destination);
+          console.log(data);
       });
     });
   }
