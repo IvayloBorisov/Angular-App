@@ -21,7 +21,7 @@ import { AuthenticationModule } from './components/authentication/authentication
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,   
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

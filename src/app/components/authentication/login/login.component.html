@@ -15,7 +15,7 @@
       <mat-hint align="end">Password must be 5/15 chars</mat-hint>
       <mat-error align="end" *ngIf="form.password.errors?.required">This field is required!</mat-error>
       <mat-error align="end" *ngIf="form.password.errors?.minlength">Password must be at least 5 chars!</mat-error>
-      <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must be less than 16 chars!</mat-error>
+      <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must no more than 15 chars!</mat-error>
     </mat-form-field>
     <button mat-raised-button [disabled]="loginForm.invalid" color="primary" type="submit">Login</button>
 </form>

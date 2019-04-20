@@ -1,5 +1,5 @@
-
-  <div class="col-lg-4" *ngFor="let destination of destinationAll$ | async">
+<div >
+  <div  class="col-lg-4" *ngFor="let destination of destinationAll$ | async">
     <div class="card mb-3">
       <h3 class="card-header">{{destination.location}}</h3>
       <img style="height: 150px; width: 100%; display: block;" src="{{destination.imageUrl}}"
@@ -9,7 +9,6 @@
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-info" [routerLink]="['/destination/details', destination._id]" >Details</button>
-       
           <button *ngIf="authService.isAdmin()" type="button" class="btn btn-danger" (click)="deleteDestination(destination._id)" >Delete</button>
        
       </div>
@@ -17,3 +16,4 @@
       </div>
     </div>
   </div>
+</div>

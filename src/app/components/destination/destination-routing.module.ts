@@ -9,7 +9,7 @@ const destinationRoutes: Route[] = [
   
   { path: 'create', component: DestinationCreateComponent, canActivate: [ AdminGuard ] },
   { path: 'all', component: DestinationAllComponent },
-  { path: 'details/:id', component: DestinationDetailsComponent }
+  { path: 'details/:id', component: DestinationDetailsComponent },
 ] 
 
 @NgModule({

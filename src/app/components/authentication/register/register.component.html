@@ -7,7 +7,7 @@
         <mat-hint align="end">Username must be 3/10 chars</mat-hint>
         <mat-error align="end" *ngIf="form.name.errors?.required">This field is required!</mat-error>
         <mat-error align="end" *ngIf="form.name.errors?.minlength">Username must be at least 3 chars!</mat-error>
-        <mat-error align="end" *ngIf="form.name.errors?.maxlength">Username must be less than 11 chars!</mat-error>
+        <mat-error align="end" *ngIf="form.name.errors?.maxlength">Username must be no more than 10 chars!</mat-error>
     </mat-form-field> 
     <mat-form-field>
     <mat-label>Email</mat-label>
@@ -24,7 +24,7 @@
         <mat-hint align="end">Password must be 5/15 chars</mat-hint>
         <mat-error align="end" *ngIf="form.password.errors?.required">This field is required!</mat-error>
         <mat-error align="end" *ngIf="form.password.errors?.minlength">Password must be at least 5 chars!</mat-error>
-        <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must be less than 16 chars!</mat-error>
+        <mat-error align="end" *ngIf="form.password.errors?.maxlength">Password must be no more than 15 chars!</mat-error>
     </mat-form-field>
  
   <button mat-raised-button [disabled]="registerForm.invalid" color="primary" type="submit">Register</button>

@@ -7,10 +7,12 @@ import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-destination-all',
   templateUrl: './destination-all.component.html',
-  styleUrls: ['./destination-all.component.css']
+  styleUrls: ['./destination-all.component.css'],
+
 })
 export class DestinationAllComponent implements OnInit {
 
+   state = "normal";
    destinationAll$: Observable<Array<Destination>>
 
   constructor(private destinationService: DestinationService, public authService: AuthService) { }
@@ -26,6 +28,8 @@ export class DestinationAllComponent implements OnInit {
       this.destinationAll$ = this.destinationService.getAllDestinations();
     })
     }
+
+    
     
 
   

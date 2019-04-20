@@ -22,14 +22,12 @@ export class DestinationCreateComponent implements OnInit {
 
       location: ['', [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ] ],
       hotel: [ '', [ Validators.required, Validators.minLength(3), Validators.maxLength(20) ] ],
-      imageUrl: [ '', [ Validators.required, ] ],
+      imageUrl: [ '', [ Validators.required, Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/)] ],
       description: [ '', [ Validators.required, Validators.minLength(20), Validators.maxLength(1000) ] ],
-      // topSightsOne: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
-      // topSightsTwo: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
-      // topSightsThree: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
-      topSightsOne: [ '', Validators.nullValidator],
-      topSightsTwo: [ '', Validators.nullValidator ],
-      topSightsThree: [ '', Validators.nullValidator],
+      topSightsOne: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+      topSightsTwo: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+      topSightsThree: [ '', Validators.pattern(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/) ],
+     
     })
   }
 

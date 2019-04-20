@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
 const createDestinationUtl = "http://localhost:5000/destination/create";
 const allDestinationsUrl = "http://localhost:5000/destination/all";
 const destinationDetailsUrl = "http://localhost:5000/destination/details/";
-const deleteDestinationUrl = "http://localhost:5000/destination/delete/"
+const deleteDestinationUrl = "http://localhost:5000/destination/delete/";
+const editDestinationUrl = "http://localhost:5000/destination/edit/";
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +33,6 @@ export class DestinationService {
   deleteDestination(id) {
     return this.http.delete(deleteDestinationUrl + id);
   }
+
+ 
 }
