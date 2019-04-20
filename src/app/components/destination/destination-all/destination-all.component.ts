@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Destination } from '../../shared/models/destination';
 import { DestinationService } from '../../../core/services/destination.service';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-destination-all',
@@ -12,7 +13,7 @@ export class DestinationAllComponent implements OnInit {
 
    destinationAll$: Observable<Array<Destination>>
 
-  constructor(private destinationService: DestinationService) { }
+  constructor(private destinationService: DestinationService, public authService: AuthService) { }
 
   ngOnInit() {
 

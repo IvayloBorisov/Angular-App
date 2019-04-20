@@ -1,10 +1,7 @@
-button {
-    width: 70px;
+div {
+    height: 600px;
 }
 
-.register-form {
-
-    width: 850px;
-    height: 650px;
+form {
+    padding-top: 100px;
 }
-

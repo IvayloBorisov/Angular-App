@@ -1,3 +1,13 @@
 textarea {
     resize: none !important;
 }
+
+div {
+    height: 800px;
+}
+
+
+form {
+
+    padding: 50px;
+}

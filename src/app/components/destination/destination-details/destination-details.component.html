@@ -1,5 +1,5 @@
 <div *ngIf="destination">
-  <img src="{{destination.imageUrl}}"/>
+  <img src="{{destination.imageUrl}}" class="main-image"/>
   <div>
     <h1>Why go to {{destination.location}}</h1>
     <p>
@@ -7,10 +7,12 @@
     </p>
   </div>
   <div>
-    <h3>We recommend to stay in hotel: {{destination.hotel}} and visit:</h3>
+    <h3>We recommend to stay in: {{destination.hotel}} and visit:</h3>
+    <div class="image">
     <img src="{{destination.topSightsOne}}" />
-    <img src="{{destination.topSightsTwo}}" />
-    <img src="{{destination.topSightsThree}}" />
+    <img src="{{destination.topSightsTwo}}"  />
+    <img src="{{destination.topSightsThree}}"  />
+  </div>
   </div>
 </div>
 

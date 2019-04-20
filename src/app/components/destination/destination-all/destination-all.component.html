@@ -1,27 +1,19 @@
-<div class="row-space-top">
-  <div class="col-md-4" *ngFor="let destination of destinationAll$ | async">
+
+  <div class="col-lg-4" *ngFor="let destination of destinationAll$ | async">
     <div class="card mb-3">
       <h3 class="card-header">{{destination.location}}</h3>
-      <img style="height: 200px; width: 100%; display: block;" src="{{destination.imageUrl}}"
+      <img style="height: 150px; width: 100%; display: block;" src="{{destination.imageUrl}}"
         alt="{{destination.location}} image">
       <div class="card-body">
-        <p class="card-text">{{destination.description}}</p>
+        <p class="card-text">{{destination.description | slice: 0: 50}}...</p>
       </div>
       <div class="card-body">
         <button type="button" class="btn btn-info" [routerLink]="['/destination/details', destination._id]" >Details</button>
-        <button type="button" class="btn btn-danger" (click)="deleteDestination(destination._id)" >Delete</button>
+       
+          <button *ngIf="authService.isAdmin()" type="button" class="btn btn-danger" (click)="deleteDestination(destination._id)" >Delete</button>
+       
       </div>
       <div class="card-footer text-muted">
       </div>
     </div>
   </div>
-  <!-- <ng-template #loading>
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-4 text-center" >
-          <h1>Loading...</h1>
-      </div>
-      <div class="col-lg-4"></div>
-    </div>
-  </ng-template> -->
-</div>
