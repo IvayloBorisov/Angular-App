@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from '../../shared/models/destination';
-import { DestinationService } from '../destination.service';
+import { DestinationService } from '../../../core/services/destination.service';
 import { Observable } from 'rxjs';
 
 @Component({
